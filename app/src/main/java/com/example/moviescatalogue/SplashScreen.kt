@@ -17,7 +17,7 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         coroutineScope.launch {
-            delay(1200)
+            delay(1000)
 
             val intent = Intent(this@SplashScreen, MainActivity::class.java)
             startActivity(intent)
