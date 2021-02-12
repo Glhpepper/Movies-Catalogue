@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search_favorite"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search_icon"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+    <item
+        android:id="@+id/delete_favorite"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete_from_favorite"
+        app:showAsAction="ifRoom" />
+</menu>

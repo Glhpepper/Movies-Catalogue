@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/moviesFragment">
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.example.moviescatalogue.main.movies.MoviesFragment"
+        android:label="Movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_moviesBottomSheetFragment"
+            app:destination="@id/moviesBottomSheetFragment" />
+        <action
+            android:id="@+id/action_moviesFragment_to_detailMoviesActivity"
+            app:destination="@id/detailMoviesActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/showsFragment"
+        android:name="com.example.moviescatalogue.main.shows.ShowsFragment"
+        android:label="Shows"
+        tools:layout="@layout/fragment_shows" >
+        <action
+            android:id="@+id/action_showsFragment_to_showsBottomSheetFragment"
+            app:destination="@id/showsBottomSheetFragment" />
+        <action
+            android:id="@+id/action_showsFragment_to_detailShowsActivity"
+            app:destination="@id/detailShowsActivity" />
+    </fragment>
+    <dialog
+        android:id="@+id/moviesBottomSheetFragment"
+        android:name="com.example.moviescatalogue.main.movies.MoviesBottomSheetFragment"
+        android:label="MoviesBottomSheetFragment"
+        tools:layout="@layout/fragment_movies_bottom_sheet">
+        <action
+            android:id="@+id/action_moviesBottomSheetFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment"
+            app:popUpTo="@id/moviesFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/showsBottomSheetFragment"
+        android:name="com.example.moviescatalogue.main.shows.ShowsBottomSheetFragment"
+        android:label="ShowsBottomSheetFragment"
+        tools:layout="@layout/fragment_shows_bottom_sheet">
+        <action
+            android:id="@+id/action_showsBottomSheetFragment_to_showsFragment"
+            app:destination="@id/showsFragment"
+            app:popUpTo="@id/showsFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <activity
+        android:id="@+id/detailMoviesActivity"
+        android:name="com.example.moviescatalogue.detail.movies.DetailMoviesActivity"
+        android:label="DetailMoviesActivity"
+        tools:layout="@layout/activity_detail_movies" >
+        <deepLink app:uri="moviecatalogue://detail_movies?id={id}" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </activity>
+    <activity
+        android:id="@+id/detailShowsActivity"
+        android:name="com.example.moviescatalogue.detail.shows.DetailShowsActivity"
+        android:label="DetailShowsActivity"
+        tools:layout="@layout/activity_detail_shows">
+        <deepLink app:uri="moviecatalogue://detail_shows?id={id}" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </activity>
+    <fragment
+        android:id="@+id/upcomingFragment"
+        android:name="com.example.moviescatalogue.upcoming.UpcomingFragment"
+        android:label="Upcoming"
+        tools:layout="@layout/fragment_upcoming" >
+        <action
+            android:id="@+id/action_upcomingFragment_to_detailMoviesActivity"
+            app:destination="@id/detailMoviesActivity" />
+        <action
+            android:id="@+id/action_upcomingFragment_to_detailShowsActivity"
+            app:destination="@id/detailShowsActivity" />
+    </fragment>
+
+</navigation>

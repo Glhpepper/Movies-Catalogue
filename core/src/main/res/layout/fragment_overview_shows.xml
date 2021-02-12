@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailShows"
+            type="com.example.core.domain.model.detail.shows.DetailShowsDomain" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detail_layout_shows"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".detail.shows.OverviewShowsFragment">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/content_detail_shows"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutDescription="@xml/fragment_overview_shows_xml_content_detail_shows_scene">
+
+            <ImageView
+                android:id="@+id/overview_img_shows"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:contentDescription="@string/detail_image_shows"
+                android:scaleType="centerCrop"
+                app:imgUrl="@{detailShows.posterPath}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <View
+                android:id="@+id/gradient_overlay"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:background="@drawable/gradient_overlay"
+                app:layout_constraintBottom_toBottomOf="@+id/overview_img_shows"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/overview_img_shows"
+                app:layout_constraintTop_toTopOf="@+id/overview_img_shows"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/vote_count_text_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="12dp"
+                android:text="@{String.valueOf(detailShows.voteCount)}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/overview_img_shows"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@string/_100" />
+
+            <ImageView
+                android:id="@+id/vote_count_img_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/vote_count"
+                android:src="@drawable/ic_count"
+                app:layout_constraintBottom_toTopOf="@+id/vote_count_text_shows"
+                app:layout_constraintEnd_toEndOf="@+id/vote_count_text_shows"
+                app:layout_constraintStart_toStartOf="@+id/vote_count_text_shows"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/vote_average_text_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:text="@{String.valueOf(detailShows.voteAverage)}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/vote_count_text_shows"
+                app:layout_constraintEnd_toStartOf="@+id/vote_count_text_shows"
+                tools:text="@string/_100" />
+
+            <ImageView
+                android:id="@+id/vote_average_img_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/vote_average"
+                android:src="@drawable/ic_score"
+                app:layout_constraintBottom_toTopOf="@+id/vote_average_text_shows"
+                app:layout_constraintEnd_toEndOf="@+id/vote_average_text_shows"
+                app:layout_constraintStart_toStartOf="@+id/vote_average_text_shows"
+                app:tint="@color/white" />
+
+
+            <TextView
+                android:id="@+id/release_date_text_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@{detailShows.firstAirDate}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/vote_average_text_shows"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/release_s" />
+
+            <ImageView
+                android:id="@+id/release_date_img_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/vote_count"
+                android:src="@drawable/ic_date"
+                app:layout_constraintBottom_toTopOf="@+id/release_date_text_shows"
+                app:layout_constraintEnd_toEndOf="@+id/release_date_text_shows"
+                app:layout_constraintStart_toStartOf="@+id/release_date_text_shows"
+                app:layout_constraintTop_toTopOf="@+id/vote_average_img_shows"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/title_detail_shows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:text="@{detailShows.name}"
+                android:textColor="@color/darker"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/overview_img_shows"
+                tools:text="@string/title" />
+
+            <TextView
+                android:id="@+id/home_detail_shows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:alpha="0.7"
+                android:gravity="center"
+                android:text="@{detailShows.homepage}"
+                android:textColor="@color/darker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_detail_shows"
+                tools:text="@string/homepage" />
+
+            <ImageView
+                android:id="@+id/crime_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/crime_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/action_img_view"
+                app:layout_constraintStart_toEndOf="@+id/mystery_text_view"
+                app:layout_constraintTop_toTopOf="@+id/action_img_view"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="@color/darker" />
+
+            <ImageView
+                android:id="@+id/drama_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/history_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@+id/crime_img_view"
+                app:layout_constraintTop_toBottomOf="@+id/crime_img_view"
+                app:tint="@color/darker" />
+
+            <TextView
+                android:id="@+id/comedy_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/comedy"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/comedy_img_view"
+                app:layout_constraintStart_toEndOf="@+id/comedy_img_view"
+                app:layout_constraintTop_toTopOf="@+id/comedy_img_view"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ImageView
+                android:id="@+id/documentary_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/war_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintEnd_toEndOf="@+id/mystery_text_view"
+                app:layout_constraintStart_toStartOf="@+id/mystery_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/drama_img_view"
+                app:tint="@color/darker" />
+
+            <ImageView
+                android:id="@+id/kids_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/horror_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/crime_img_view"
+                app:layout_constraintStart_toEndOf="@+id/drama_text_view"
+                app:layout_constraintTop_toTopOf="@+id/crime_img_view"
+                app:tint='@color/darker' />
+
+            <ImageView
+                android:id="@+id/politics_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/romance_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@+id/kids_img_view"
+                app:layout_constraintTop_toBottomOf="@+id/kids_img_view"
+                app:tint="@color/darker" />
+
+            <TextView
+                android:id="@+id/politics_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/politics"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/politics_img_view"
+                app:layout_constraintStart_toEndOf="@+id/politics_img_view"
+                app:layout_constraintTop_toTopOf="@+id/politics_img_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/mystery_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/mystery"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/mystery_img_view"
+                app:layout_constraintStart_toEndOf="@+id/mystery_img_view"
+                app:layout_constraintTop_toTopOf="@+id/mystery_img_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/anime_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/animation"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/anime_img_view"
+                app:layout_constraintStart_toEndOf="@+id/anime_img_view"
+                app:layout_constraintTop_toTopOf="@+id/anime_img_view"
+                app:layout_constraintVertical_bias="0.6" />
+
+            <TextView
+                android:id="@+id/action_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/action"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/action_img_view"
+                app:layout_constraintStart_toEndOf="@+id/action_img_view"
+                app:layout_constraintTop_toTopOf="@+id/action_img_view"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <TextView
+                android:id="@+id/kids_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/kids"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/kids_img_view"
+                app:layout_constraintStart_toEndOf="@+id/kids_img_view"
+                app:layout_constraintTop_toTopOf="@+id/kids_img_view"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ImageView
+                android:id="@+id/action_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/action_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_detail_shows"
+                app:tint="@color/darker" />
+
+            <ImageView
+                android:id="@+id/anime_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/music_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintEnd_toEndOf="@+id/politics_text_view"
+                app:layout_constraintStart_toEndOf="@+id/politics_img_view"
+                app:layout_constraintTop_toBottomOf="@+id/politics_img_view"
+                app:tint="@color/darker" />
+
+            <TextView
+                android:id="@+id/drama_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/drama"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/drama_img_view"
+                app:layout_constraintStart_toEndOf="@+id/drama_img_view"
+                app:layout_constraintTop_toTopOf="@+id/drama_img_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/family_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/family"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/family_img_view"
+                app:layout_constraintStart_toEndOf="@+id/family_img_view"
+                app:layout_constraintTop_toTopOf="@+id/family_img_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/mystery_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/animation_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@+id/action_img_view"
+                app:layout_constraintTop_toBottomOf="@+id/action_img_view"
+                app:tint="@color/darker" />
+
+            <ImageView
+                android:id="@+id/family_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/family_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@+id/comedy_img_view"
+                app:layout_constraintTop_toBottomOf="@+id/comedy_img_view"
+                app:tint="@color/darker" />
+
+            <TextView
+                android:id="@+id/documentary_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/documentary"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/documentary_img_view"
+                app:layout_constraintStart_toEndOf="@+id/documentary_img_view"
+                app:layout_constraintTop_toTopOf="@+id/documentary_img_view"
+                app:layout_constraintVertical_bias="0.6" />
+
+            <ImageView
+                android:id="@+id/comedy_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/comedy_image_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/kids_img_view"
+                app:layout_constraintStart_toEndOf="@+id/politics_text_view"
+                app:layout_constraintTop_toTopOf="@+id/kids_img_view"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="@color/darker" />
+
+            <TextView
+                android:id="@+id/crime_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/crime"
+                android:textColor="@color/darker"
+                app:layout_constraintBottom_toBottomOf="@+id/crime_img_view"
+                app:layout_constraintStart_toEndOf="@+id/crime_img_view"
+                app:layout_constraintTop_toTopOf="@+id/crime_img_view"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ScrollView
+                android:id="@+id/scroll_view_shows"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/backdrop_img_shows"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anime_img_view">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/overview_detail_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@{detailShows.overview}"
+                        android:textSize="16sp"
+                        tools:text="@string/overview" />
+                </LinearLayout>
+            </ScrollView>
+
+            <ImageView
+                android:id="@+id/backdrop_img_shows"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:alpha="0"
+                android:contentDescription="@string/detail_image_shows"
+                android:scaleType="centerCrop"
+                app:imgUrl="@{detailShows.posterPath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <ImageView
+            android:id="@+id/error_img_view_shows"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.5"
+            android:contentDescription="@string/error"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002"
+            app:srcCompat="@drawable/ic_sad"
+            app:tint="@color/darker" />
+
+        <TextView
+            android:id="@+id/error_text_view_shows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:text="@string/no_internet_connection"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/error_img_view_shows"
+            app:layout_constraintStart_toStartOf="@+id/error_img_view_shows"
+            app:layout_constraintTop_toBottomOf="@+id/error_img_view_shows" />
+
+        <ProgressBar
+            android:id="@+id/shows_pb"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
